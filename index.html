@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
 
     <title>Zappar for A-Frame</title>
-<script src='https://aframe.io/releases/1.2.0/aframe.min.js'></script><script src='https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.js'></script>
+    <script src='https://aframe.io/releases/1.2.0/aframe.min.js'></script>
+    <script src='https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.js'></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="components.js"></script>
     <style>
         html,
         body {
@@ -26,15 +30,53 @@
         <a-entity zappar-compatibility-ui id="compatibility"></a-entity>
         <a-assets>
             <a-asset-item id="target-file" src="example-tracking-image.zpt"/>
+            
+            <img id="field2" src="./assets/field2.jpg" >
+                 <a-asset-item preload="auto" class="a-sound" id="splatSrc" src="assets/sound.mp3" response-type="arraybuffer"></a-asset-item>
         </a-assets>
-
+ <a-asset-item id="ballModel"  src="assets/astronaut7.glb"></a-asset-item>
         <a-entity camera zappar-camera></a-entity>
 
         <a-entity zappar-image="target: #target-file" id="image-group">
 
             <!-- PLACE 3D OBJECTS HERE TO TRACK FROM THE CENTER OF THE IMAGE -->
             <a-box position="0 0 0.5"></a-box>
+            
+            
+         <a-ring
+            id="portal"
+             radius-inner="0.001"
+             radius-outer="1000"
+              xrextras-hider-material
+            ></a-ring>
+    
+        <a-entity
+             id="ball"
+            gltf-model="#ballModel"
+           animation-mixer="clip: *; loop: repeat" 
+             position="0 -3 3"
+              scale="0.15 0.15 0.15"
+              cubemap-static
+              show-hide
+            >
+         </a-entity>
+            
+                  <a-entity
+      id="splat"
+      sound="src: #splatSrc"
+        >
+    </a-entity>
 
+
+
+    
+    <a-sky 
+    id="background-img"
+      rotation="0 90 0"
+      scale="0.015 0.015 -0.015"
+      src="#field2"
+    ></a-sky>
+            
         </a-entity>
     </a-scene>
 </body>
