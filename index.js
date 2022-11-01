@@ -9,7 +9,7 @@ function setup() {
 
        const portal = document.querySelector('#portal')
   
-          let    ball = document.querySelector('#ball')
+          const   ball = document.querySelector('#ball')
           
     let imageVisible = false;
 
