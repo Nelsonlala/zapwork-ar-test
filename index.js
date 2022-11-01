@@ -8,8 +8,7 @@ function setup() {
     const myImageGroup = document.getElementById("image-group");
 
        const portal = document.querySelector('#portal')
-     const sky = document.querySelector('#background-img')
-      sky.setAttribute('src', '#field2')
+  
           let    ball = document.querySelector('#ball')
           
     let imageVisible = false;
