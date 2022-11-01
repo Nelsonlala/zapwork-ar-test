@@ -6,7 +6,7 @@ window.addEventListener("load", setup);
 function setup() {
 
     const myImageGroup = document.getElementById("image-group");
-
+    const splatSnd = this.el.sceneEl.querySelector('#splat')
        const portal = document.querySelector('#portal')
   
           const   ball = document.querySelector('#ball')
